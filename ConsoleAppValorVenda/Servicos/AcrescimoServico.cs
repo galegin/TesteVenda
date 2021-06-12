@@ -12,7 +12,8 @@ namespace ConsoleAppValorVenda
             //a quantidade de dias úteis entre a data de compra e data de vencimento;
 
             var taxaJuros = 0.05;
-            var prazoMedioPagto = venda.FormaPagto.Parcelas.Average(x => x.NumeroDias);
+            var numeroDiasUteis = venda.FormaPagto.CalcularNumeroDiasUteis(venda.Data);
+            var prazoMedioPagto = numeroDiasUteis / venda.FormaPagto.Parcelas.Count();
             var valorTotalLiquido = venda.Itens.Sum(x => x.ValorLiquido);
             var valorTotalAcrescimo = valorTotalLiquido * (Math.Pow(1 + (taxaJuros / 100), prazoMedioPagto) - 1);
             venda.ValorAcrescimo = Math.Round(valorTotalAcrescimo, 2);

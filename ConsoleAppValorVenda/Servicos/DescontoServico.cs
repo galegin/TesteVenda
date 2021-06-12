@@ -22,21 +22,18 @@ namespace ConsoleAppValorVenda
         {
             var percDesconto = conceito.PercDesconto;
 
-            var qtdeGrupos = vendaItem.Venda.Itens
+            var percDescontoPorQtdeGrupos = vendaItem.Venda.Itens
                 .Select(item => item.Produto.Grupo)
                 .GroupBy(grup => grup.Codigo)
                 .Select(s => s.Key)
                 .Count();
 
-            if (qtdeGrupos > _qtdeMaximaDescontoGrupo)
+            if (percDescontoPorQtdeGrupos > _qtdeMaximaDescontoGrupo)
             {
-                qtdeGrupos = _qtdeMaximaDescontoGrupo;
+                percDescontoPorQtdeGrupos = _qtdeMaximaDescontoGrupo;
             }
 
-            if (qtdeGrupos >= 1 && qtdeGrupos <= 5)
-            {
-                percDesconto += qtdeGrupos;
-            }
+            percDesconto += percDescontoPorQtdeGrupos;
 
             vendaItem.ValorDesconto = 
                 percDesconto * vendaItem.ValorBruto / 100;

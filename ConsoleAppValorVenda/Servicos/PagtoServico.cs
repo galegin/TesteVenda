@@ -12,8 +12,6 @@ namespace ConsoleAppValorVenda
             var valorParcela = Math.Round(venda.ValorTotal / qtdeParcela, 2);
             var valorResto = Math.Round(venda.ValorTotal - (valorParcela * qtdeParcela), 2);
 
-            // Dias uteis
-
             foreach (var parcela in venda.FormaPagto.Parcelas)
             {
                 var dataVencto = venda.Data.AddDays(parcela.NumeroDias);

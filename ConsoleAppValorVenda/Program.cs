@@ -20,7 +20,8 @@ namespace ConsoleAppValorVenda
 
             vendaServico.Totalizar();
 
-            Console.ReadLine();
+            Console.WriteLine("Pressione uma tecla para continuar...");
+            Console.ReadKey();
         }
     }
 }

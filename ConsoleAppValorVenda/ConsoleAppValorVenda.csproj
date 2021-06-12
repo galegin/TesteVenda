@@ -66,6 +66,7 @@
     <Compile Include="Repositorios\VendaRepositorio.cs" />
     <Compile Include="Servicos\AcrescimoServico.cs" />
     <Compile Include="Servicos\DescontoServico.cs" />
+    <Compile Include="Servicos\DiaUtilServico.cs" />
     <Compile Include="Servicos\ImpostoServico.cs" />
     <Compile Include="Servicos\PagtoServico.cs" />
     <Compile Include="Servicos\TotalServico.cs" />

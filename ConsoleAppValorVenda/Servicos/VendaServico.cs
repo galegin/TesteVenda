@@ -32,15 +32,16 @@ namespace ConsoleAppValorVenda
             Venda.Itens.Add(vendaItem);
 
             vendaItem.CalcularValorDesconto(conceito);
-            
-            Venda.CalcularValorAcrescimo();
-            
+                      
             vendaItem.CalcularValorImposto(regraFiscal);
         }
 
         public void Totalizar()
         {
+            Venda.CalcularValorAcrescimo();
+
             Venda.TotalizarVenda();
+
             Venda.GerarPagtos();
         }
     }
