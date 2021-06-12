@@ -24,15 +24,12 @@ namespace ConsoleAppValorVenda
                 .Select(s => s.Key)
                 .Count();
 
-            var percDesconto = 0D;
+            var percDesconto = conceito.PercDesconto;
 
             if (qtdeGrupos >= 1 && qtdeGrupos <= 5)
             {
-                percDesconto = qtdeGrupos;
+                percDesconto += qtdeGrupos;
             }
-
-            percDesconto += 
-                conceito.PercDesconto;
 
             vendaItem.ValorDesconto = 
                 percDesconto * vendaItem.ValorBruto / 100;

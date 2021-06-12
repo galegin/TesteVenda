@@ -17,10 +17,10 @@ namespace ConsoleAppValorVenda
             foreach (var parcela in venda.FormaPagto.Parcelas)
             {
                 var dataVencto = venda.Data.AddDays(parcela.NumeroDias);
-                var vendaPagto = new VendaPagto(parcela.Sequencia, dataVencto, Math.Round(valorParcela, 2));
+                var vendaPagto = new VendaPagto(parcela.SeqParcela, dataVencto, Math.Round(valorParcela, 2));
                 venda.Pagtos.Add(vendaPagto);
 
-                if (parcela.Sequencia == 1)
+                if (parcela.SeqParcela == 1)
                 {
                     vendaPagto.ValorParcela = Math.Round(vendaPagto.ValorParcela + valorResto, 2);
                     valorResto = 0;

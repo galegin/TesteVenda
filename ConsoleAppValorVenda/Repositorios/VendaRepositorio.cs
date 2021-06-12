@@ -11,8 +11,8 @@ namespace ConsoleAppValorVenda
                 cooperativa: CooperativaRepositorio.Cooperativas[0],
                 cooperado: CooperadoRepositorio.Cooperados[0],
                 finalidade: FinalidadeRespositorio.Finalidades[0],
-                data: DateTime.Today,
-                formaPagto: FormaPagtoRepositorio.FormaPagtoAPrazo
+                formaPagto: FormaPagtoRepositorio.FormaPagtoAPrazo,
+                data: DateTime.Today
             );
         }
     }

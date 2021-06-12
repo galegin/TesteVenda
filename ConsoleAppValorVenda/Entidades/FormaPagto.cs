@@ -30,24 +30,24 @@ namespace ConsoleAppValorVenda
 
     public class FormaPagtoParcela
     {
-        public int Sequencia { get; set; }
+        public int SeqParcela { get; set; }
         public int NumeroDias { get; set; }
 
-        public FormaPagtoParcela(int sequencia, int numeroDias)
+        public FormaPagtoParcela(int seqParcela, int numeroDias)
         {
-            Sequencia = sequencia;
+            SeqParcela = seqParcela;
             NumeroDias = numeroDias;
         }
 
         public override bool Equals(object obj)
         {
             return obj is FormaPagtoParcela parcela &&
-                   Sequencia == parcela.Sequencia;
+                   SeqParcela == parcela.SeqParcela;
         }
 
         public override int GetHashCode()
         {
-            return 11 + Sequencia.GetHashCode();
+            return 11 + SeqParcela.GetHashCode();
         }
     }
 }

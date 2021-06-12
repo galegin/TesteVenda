@@ -9,32 +9,32 @@ namespace ConsoleAppValorVenda
         public Cooperativa Cooperativa { get; set; }
         public Cooperado Cooperado { get; set; }
         public Finalidade Finalidade { get; set; }
-        public DateTime Data { get; set; }
         public FormaPagto FormaPagto { get; set; }
+        public DateTime Data { get; set; }
         public double ValorProduto { get; set; }
         public double ValorDesconto { get; set; }
         public double ValorAcrescimo { get; set; }
-        public double ValorTotal { get; set; }
         public double ValorImposto { get; set; }
+        public double ValorTotal { get; set; }
         public List<VendaItem> Itens { get; set; }
         public List<VendaPagto> Pagtos { get; set; }
 
-        public Venda(int codigo, Cooperativa cooperativa, Cooperado cooperado, Finalidade finalidade, 
-            DateTime data, FormaPagto formaPagto, 
-            double valorProduto = 0, double valorDesconto = 0, double valorAcrescimo = 0, double valorTotal = 0, double valorImposto = 0, 
+        public Venda(int codigo, Cooperativa cooperativa, Cooperado cooperado, Finalidade finalidade, FormaPagto formaPagto,
+            DateTime data, 
+            double valorProduto = 0, double valorDesconto = 0, double valorAcrescimo = 0, double valorImposto = 0, double valorTotal = 0, 
             List<VendaItem> itens = null, List<VendaPagto> pagtos = null)
         {
             Codigo = codigo;
             Cooperativa = cooperativa;
             Cooperado = cooperado;
             Finalidade = finalidade;
-            Data = data;
             FormaPagto = formaPagto;
+            Data = data;
             ValorProduto = valorProduto;
             ValorDesconto = valorDesconto;
             ValorAcrescimo = valorAcrescimo;
-            ValorTotal = valorTotal;
             ValorImposto = valorImposto;
+            ValorTotal = valorTotal;
             Itens = itens ?? new List<VendaItem>();
             Pagtos = pagtos ?? new List<VendaPagto>();
         }
