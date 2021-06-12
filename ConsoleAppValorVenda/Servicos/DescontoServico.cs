@@ -16,15 +16,22 @@ namespace ConsoleAppValorVenda
             return ConceitoRepositorio.Conceitos.FirstOrDefault(FiltrarConceito(vendaItem));
         }
 
+        private const int _qtdeMaximaDescontoGrupo = 5;
+
         public static void CalcularValorDesconto(this VendaItem vendaItem, Conceito conceito)
         {
+            var percDesconto = conceito.PercDesconto;
+
             var qtdeGrupos = vendaItem.Venda.Itens
                 .Select(item => item.Produto.Grupo)
                 .GroupBy(grup => grup.Codigo)
                 .Select(s => s.Key)
                 .Count();
 
-            var percDesconto = conceito.PercDesconto;
+            if (qtdeGrupos > _qtdeMaximaDescontoGrupo)
+            {
+                qtdeGrupos = _qtdeMaximaDescontoGrupo;
+            }
 
             if (qtdeGrupos >= 1 && qtdeGrupos <= 5)
             {
